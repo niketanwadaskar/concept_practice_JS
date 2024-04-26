@@ -785,3 +785,30 @@
 // }
 
 // printName.call(person);
+
+// const arr = [11, 12, 13, 15, 16, 17, 20];
+
+// const res = [];
+
+// let j = arr[0];
+// for (let index = 0; index < arr.length; ) {
+//   if (arr[index] && arr[index] !== j) {
+//     res.push(j);
+//     j++;
+//   } else {
+//     j++;
+//     index++;
+//   }
+// }
+// console.log(res);
+
+// const arr = [11, 12, 13, 15, 16, 17, 20];
+// const res = [];
+
+// for (let i = arr[0]; i <= arr[arr.length - 1]; i++) {
+//   if (!arr.includes(i)) {
+//     res.push(i);
+//   }
+// }
+
+// console.log(res);
