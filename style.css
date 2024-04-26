@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(209, 230, 118);
+    color: rgb(12, 3, 48);
+    height: 200vh;
+}
+
+/* Target small mobile devices (portrait phones) */
+@media only screen and (max-width: 480px) {
+    /* CSS rules for small mobile devices go here */
+}
+
+/* Target standard mobile devices (portrait and landscape phones) */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    /* CSS rules for standard mobile devices go here */
+}
+
+/* Target large mobile devices (landscape phones and small tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* CSS rules for large mobile devices go here */
+}
+
+/* Target extra-large mobile devices (landscape tablets and small desktops) */
+@media only screen and (min-width: 1024px) {
+    /* CSS rules for extra-large mobile devices go here */
+}
