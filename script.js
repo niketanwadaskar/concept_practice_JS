@@ -812,3 +812,41 @@
 // }
 
 // console.log(res);
+
+class Solution {
+  static sort012(arr, N) {
+    //your code here
+    let result = [];
+    let count_zero = 0;
+    let count_one = 0;
+    let count_two = 0;
+
+    for (let i = 0; i < N; i++) {
+      if (arr[i] == 0) count_zero++;
+      if (arr[i] == 1) count_one++;
+      if (arr[i] == 2) count_two++;
+    }
+
+    while (count_zero > 0) {
+      arr.push(0);
+      count_zero--;
+    }
+    while (count_one > 0) {
+      arr.push(1);
+      count_one--;
+    }
+    while (count_two > 0) {
+      arr.push(2);
+      count_two--;
+    }
+
+    arr.splice(0,N)
+  }
+}
+
+const arr = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1];
+const N = arr.length;
+
+Solution.sort012(arr, N);
+
+console.log(arr);
