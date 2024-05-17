@@ -852,45 +852,77 @@
 // console.log(arr);
 
 /// leet code question
-var findWords = function (words) {
-  const rows = {
-    firstRow: "qwertyuiop",
-    secondRow: "asdfghjkl",
-    thirdRow: "zxcvbnm",
-  };
-  const passedWord = [];
-  for (let i = 0; i < words.length; i++) {
-    let test = true;
-    words[i].split("").map((char) => {
-      if (!rows.firstRow.includes(char.toLowerCase())) {
-        test = false;
-      }
-    });
-    if (test) {
-      passedWord.push(words[i]);
-    }
-    test = true;
-    words[i].split("").map((char) => {
-      if (!rows.secondRow.includes(char.toLowerCase())) {
-        console.log(char);
-        test = false;
-      }
-    });
-    console.log(test, "test2");
-    if (test) {
-      passedWord.push(words[i]);
-    }
-    test = true;
-    words[i].split("").map((char) => {
-      if (!rows.thirdRow.includes(char.toLowerCase())) {
-        test = false;
-      }
-    });
-    if (test) {
-      passedWord.push(words[i]);
-    }
-  }
-  return passedWord;
-};
+// var findWords = function (words) {
+//   const rows = {
+//     firstRow: "qwertyuiop",
+//     secondRow: "asdfghjkl",
+//     thirdRow: "zxcvbnm",
+//   };
+//   const passedWord = [];
+//   for (let i = 0; i < words.length; i++) {
+//     let test = true;
+//     words[i].split("").map((char) => {
+//       if (!rows.firstRow.includes(char.toLowerCase())) {
+//         test = false;
+//       }
+//     });
+//     if (test) {
+//       passedWord.push(words[i]);
+//     }
+//     test = true;
+//     words[i].split("").map((char) => {
+//       if (!rows.secondRow.includes(char.toLowerCase())) {
+//         console.log(char);
+//         test = false;
+//       }
+//     });
+//     console.log(test, "test2");
+//     if (test) {
+//       passedWord.push(words[i]);
+//     }
+//     test = true;
+//     words[i].split("").map((char) => {
+//       if (!rows.thirdRow.includes(char.toLowerCase())) {
+//         test = false;
+//       }
+//     });
+//     if (test) {
+//       passedWord.push(words[i]);
+//     }
+//   }
+//   return passedWord;
+// };
 
-console.log(findWords(["Hello", "Alaska", "Dad", "Peace"]));
+// console.log(findWords(["Hello", "Alaska", "Dad", "Peace"]));
+
+/// leet code question
+
+// /**
+//  * @param {string[]} list1
+//  * @param {string[]} list2
+//  * @return {string[]}
+//  */
+// var findRestaurant = function (list1, list2) {
+//   const map = new Map();
+//   let result = [];
+//   const min = -Infinity;
+//   for (let i = 0; list1 < i.length; i++) {
+//     map.set(list1[i], i);
+//   }
+//   for (let i = 0; list2 < i.length; i++) {
+//     if (map.has(list2[i])) {
+//       const sum = map.get(list2[i]) + i ; 
+//       if(sum<min){
+
+//       }
+//     }
+//   }
+// };
+
+// const getKeysByValue = (object, value) => {
+//   return Object.keys(object).filter((key) => object[key] === value);
+// };
+
+// console.log(findRestaurant(["happy", "sad", "good"], ["sad", "happy", "good"]));
+
+
