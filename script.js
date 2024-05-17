@@ -911,7 +911,7 @@
 //   }
 //   for (let i = 0; list2 < i.length; i++) {
 //     if (map.has(list2[i])) {
-//       const sum = map.get(list2[i]) + i ; 
+//       const sum = map.get(list2[i]) + i ;
 //       if(sum<min){
 
 //       }
@@ -925,4 +925,85 @@
 
 // console.log(findRestaurant(["happy", "sad", "good"], ["sad", "happy", "good"]));
 
+/**
+ * @param {string} licensePlate
+ * @param {string[]} words
+ * @return {string}
+ */
+// var shortestCompletingWord = function (licensePlate, words) {
+//   const lowercase = String(licensePlate).toLowerCase();
+//   let myVal = "";
+//   for (let i = 0; i < words.length; i++) {
+//     let status = false;
+//     let myLicense = lowercase;
+//     words[i].split("").map((char) => {
+//       if (myLicense.includes(char)) {
+//         myLicense = myLicense.replace(char, "");
+//         status = true;
+//       }
+//     });
+//     console.log(myLicense, status, hasLetter(myLicense));
+//     if (!hasLetter(myLicense)) {
+//       if (
+//         myVal.length !== 0 &&
+//         myVal.length !== words[i].length &&
+//         myVal.length > words[i].length
+//       ) {
+//         myVal = words[i];
+//       } else if (myVal.length == 0) {
+//         myVal = words[i];
+//       }
+//     }
+//   }
+//   return myVal;
+// };
 
+// function hasLetter(text) {
+//   const pattern = /[a-zA-Z]/g; // Matches lowercase letters from a to z, one or more times
+//   return pattern.test(text);
+// }
+
+function shortestCompletingWord(licensePlate, words) {
+  const lowercase = String(licensePlate).toLowerCase();
+  const charCount = {};
+
+  for (const char of lowercase) {
+    if (/[a-z]/.test(char)) {
+      charCount[char] = (charCount[char] || 0) + 1;
+    }
+  }
+  let shortestWord = "";
+
+  for (const word of words) {
+    const wordLower = word.toLowerCase();
+    let canComplete = true;
+
+    for (const char of lowercase) {
+      console.log(
+        charCount[char],
+        wordLower.split(char).length - 1,
+        charCount[char]
+      );
+      if (
+        charCount[char] &&
+        wordLower.split(char).length - 1 < charCount[char]
+      ) {
+        canComplete = false;
+        break;
+      }
+    }
+
+    if (
+      canComplete &&
+      (!shortestWord || wordLower.length < shortestWord.length)
+    ) {
+      shortestWord = wordLower;
+    }
+  }
+
+  return shortestWord;
+}
+
+console.log(
+  shortestCompletingWord("1s3 456s", ["looks", "pest", "stew", "shows"])
+);
