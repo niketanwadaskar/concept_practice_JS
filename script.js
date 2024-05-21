@@ -963,47 +963,127 @@
 //   return pattern.test(text);
 // }
 
-function shortestCompletingWord(licensePlate, words) {
-  const lowercase = String(licensePlate).toLowerCase();
-  const charCount = {};
+// function shortestCompletingWord(licensePlate, words) {
+//   const lowercase = String(licensePlate).toLowerCase();
+//   const charCount = {};
 
-  for (const char of lowercase) {
-    if (/[a-z]/.test(char)) {
-      charCount[char] = (charCount[char] || 0) + 1;
+//   for (const char of lowercase) {
+//     if (/[a-z]/.test(char)) {
+//       charCount[char] = (charCount[char] || 0) + 1;
+//     }
+//   }
+//   let shortestWord = "";
+
+//   for (const word of words) {
+//     const wordLower = word.toLowerCase();
+//     let canComplete = true;
+
+//     for (const char of lowercase) {
+//       console.log(
+//         charCount[char],
+//         wordLower.split(char).length - 1,
+//         charCount[char]
+//       );
+//       if (
+//         charCount[char] &&
+//         wordLower.split(char).length - 1 < charCount[char]
+//       ) {
+//         canComplete = false;
+//         break;
+//       }
+//     }
+
+//     if (
+//       canComplete &&
+//       (!shortestWord || wordLower.length < shortestWord.length)
+//     ) {
+//       shortestWord = wordLower;
+//     }
+//   }
+
+//   return shortestWord;
+// }
+
+// console.log(
+//   shortestCompletingWord("1s3 456s", ["looks", "pest", "stew", "shows"])
+// );
+
+// var uniqueMorseRepresentations = function (words) {
+//   const letters = {
+//     a: ".-",
+//     b: "-...",
+//     c: "-.-.",
+//     d: "-..",
+//     e: ".",
+//     f: "..-.",
+//     g: "--.",
+//     h: "....",
+//     i: "..",
+//     j: ".---",
+//     k: "-.-",
+//     l: ".-..",
+//     m: "--",
+//     n: "-.",
+//     o: "---",
+//     p: ".--.",
+//     q: "--.-",
+//     r: ".-.",
+//     s: "...",
+//     t: "-",
+//     u: "..-",
+//     v: "...-",
+//     w: ".--",
+//     x: "-..-",
+//     y: "-.--",
+//     z: "--..",
+//   };
+//   const result = [];
+//   for (let i = 0; i < words.length; i++) {
+//     const morsecode = words[i].split("").reduce((acc, curr) => {
+//       console.log(acc, letters[curr]);
+
+//       return (acc = String(acc) + String(letters[curr]));
+//     }, "");
+//     if (!result.includes(morsecode)) {
+//       result.push(morsecode);
+//     }
+//   }
+//   return result.length;
+// };
+
+// console.log(uniqueMorseRepresentations(["gin", "zen", "gig", "msg"]));
+
+var numberOfLines = function (widths, s) {
+  let line = 0;
+  let max = 100;
+  const obj = {};
+  s.split("").map((char, index) => {
+    if (!obj[char]) {
+      obj[char] = widths[index];
     }
-  }
-  let shortestWord = "";
-
-  for (const word of words) {
-    const wordLower = word.toLowerCase();
-    let canComplete = true;
-
-    for (const char of lowercase) {
-      console.log(
-        charCount[char],
-        wordLower.split(char).length - 1,
-        charCount[char]
-      );
-      if (
-        charCount[char] &&
-        wordLower.split(char).length - 1 < charCount[char]
-      ) {
-        canComplete = false;
-        break;
+  });
+  console.log(obj, s.length);
+  for (let i = 0; i < s.length; i++) {
+    max = 100;
+    console.log("line", line, max, i);
+    while (max > 0 && Number(max) - Number(obj[s[i]]) >= 0) {
+      if (max) {
+        max = Number(max) - Number(obj[s[i]]);
+        console.log(Number(max), Number(obj[s[i]]), i);
+        i++;
       }
     }
-
-    if (
-      canComplete &&
-      (!shortestWord || wordLower.length < shortestWord.length)
-    ) {
-      shortestWord = wordLower;
-    }
+    line++;
   }
-
-  return shortestWord;
-}
+  return [line, max];
+};
 
 console.log(
-  shortestCompletingWord("1s3 456s", ["looks", "pest", "stew", "shows"])
+  numberOfLines(
+    [
+      4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10,
+    ],
+    "bbbcccdddaaa"
+  )
 );
