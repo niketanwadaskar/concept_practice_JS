@@ -1053,37 +1053,37 @@
 
 // console.log(uniqueMorseRepresentations(["gin", "zen", "gig", "msg"]));
 
-var numberOfLines = function (widths, s) {
-  let line = 0;
-  let max = 100;
-  const obj = {};
-  s.split("").map((char, index) => {
-    if (!obj[char]) {
-      obj[char] = widths[index];
-    }
-  });
-  console.log(obj, s.length);
-  for (let i = 0; i < s.length; i++) {
-    max = 100;
-    console.log("line", line, max, i);
-    while (max > 0 && Number(max) - Number(obj[s[i]]) >= 0) {
-      if (max) {
-        max = Number(max) - Number(obj[s[i]]);
-        console.log(Number(max), Number(obj[s[i]]), i);
-        i++;
-      }
-    }
-    line++;
-  }
-  return [line, max];
-};
+// var numberOfLines = function (widths, s) {
+//   let line = 0;
+//   let max = 100;
+//   const obj = {};
+//   s.split("").map((char, index) => {
+//     if (!obj[char]) {
+//       obj[char] = widths[index];
+//     }
+//   });
+//   console.log(obj, s.length);
+//   for (let i = 0; i < s.length; i++) {
+//     max = 100;
+//     console.log("line", line, max, i);
+//     while (max > 0 && Number(max) - Number(obj[s[i]]) >= 0) {
+//       if (max) {
+//         max = Number(max) - Number(obj[s[i]]);
+//         console.log(Number(max), Number(obj[s[i]]), i);
+//         i++;
+//       }
+//     }
+//     line++;
+//   }
+//   return [line, max];
+// };
 
-console.log(
-  numberOfLines(
-    [
-      4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
-      10, 10, 10, 10, 10, 10, 10,
-    ],
-    "bbbcccdddaaa"
-  )
-);
+// console.log(
+//   numberOfLines(
+//     [
+//       4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+//       10, 10, 10, 10, 10, 10, 10,
+//     ],
+//     "bbbcccdddaaa"
+//   )
+// );
