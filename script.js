@@ -1088,37 +1088,61 @@
 //   )
 // );
 
-var mostCommonWord = function (paragraph, banned) {
-  let result = "";
-  let max = 0;
-  const obj = {};
-  // paragraph.toLowerCase()
-  paragraph
-    .toLowerCase()
-    .split(/\W+/)
-    .map((char) => {
-      if (!banned.includes(char)) {
-        if (obj[char]) {
-          obj[char] = obj[char] + 1;
-        } else {
-          obj[char] = 1;
-        }
-      }
-    });
-  const arr = Object.keys(obj);
-  console.log(obj);
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== "" && obj[arr[i]] > max) {
-      max = obj[arr[i]];
-      result = arr[i];
-      console.log(result, arr[i]);
-    }
-  }
-  return result;
-};
+// var mostCommonWord = function (paragraph, banned) {
+//   let result = "";
+//   let max = 0;
+//   const obj = {};
+//   // paragraph.toLowerCase()
+//   paragraph
+//     .toLowerCase()
+//     .split(/\W+/)
+//     .map((char) => {
+//       if (!banned.includes(char)) {
+//         if (obj[char]) {
+//           obj[char] = obj[char] + 1;
+//         } else {
+//           obj[char] = 1;
+//         }
+//       }
+//     });
+//   const arr = Object.keys(obj);
+//   console.log(obj);
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== "" && obj[arr[i]] > max) {
+//       max = obj[arr[i]];
+//       result = arr[i];
+//       console.log(result, arr[i]);
+//     }
+//   }
+//   return result;
+// };
 
-console.log(
-  mostCommonWord("..Bob hit a ball, the hit BALL flew far after it was hit.", [
-    "hit",
-  ])
-);
+// console.log(
+//   mostCommonWord("..Bob hit a ball, the hit BALL flew far after it was hit.", [
+//     "hit",
+//   ])
+// );
+
+// var shortestToChar = function (s, c) {
+//   let result = [];
+//   const arrOfChar = s.split("");
+//   const appear = [];
+//   for (let i = 0; i < arrOfChar.length; i++) {
+//     if (arrOfChar[i] == c) {
+//       appear.push(i);
+//     }
+//   }
+//   arrOfChar.map((char, index) => {
+//     const res = appear.reduce((acc, val) => {
+//       if (Math.abs(val - index) < acc) {
+//         return Math.abs(val - index);
+//       } else {
+//         return acc;
+//       }
+//     }, Infinity);
+//     result.push(res);
+//   });
+//   return result;
+// };
+
+// console.log(shortestToChar("loveleetcode", "e"));
