@@ -1221,3 +1221,78 @@
 // };
 
 // console.log(shortestToChar("loveleetcode", "e"));
+
+
+//?  tricky  JS question.
+// let x = 10 ;
+// let y = (x++,x+1,x*2);
+//  (11,12)
+// console.log(y)
+
+// foo factorial three  function  -- > 3
+
+
+//? Function Declaration vs. Expression
+
+// function functionName(parameters) {
+//   // Function body
+// }
+// const functionName = function(parameters) {
+//   // Function body
+// };
+
+
+// sayHello(); // Error: Cannot access 'sayHello' before initialization
+
+// var sayHello = function() {
+//   console.log("Hello, World!");
+// };
+
+// sayHello(); // Works
+
+//? Event Loop and Concurrency Model
+
+// console.log('Start');
+
+//# settimeout is stored inside the task queue  which has less priority than the microtask queue.
+// setTimeout(() => {
+//   console.log('Timeout callback');
+// }, 0);
+
+//# promise is stored inside the microtask queue which has higher priority than task queue.
+// Promise.resolve().then(() => {
+//   console.log('Promise callback');
+// });
+
+// console.log('End');
+// THATS WHY RESULT WILL BE START,END,PROMISE,TIMEOUT
+// NOW THE MECHANISM WHICH WE JUST DISCUSSED IS BASICALLY A EVENT LOOP OR WHICH USES THE CONCURRENCY MODEL
+
+// ? What is an Object Kit?
+// Object Kit is not a formal or widely recognized technical term
+// so object kit can be refer to some utility function which are design to make working with object easier  
+
+const ObjectKit = {
+  // Merge multiple objects
+  merge: (...objects) => Object.assign({}, ...objects),
+
+  // Deep clone an object
+  deepClone: (obj) => JSON.parse(JSON.stringify(obj)),
+
+  // Filter object keys based on a condition
+  filterKeys: (obj, predicate) => 
+    Object.fromEntries(Object.entries(obj).filter(([key, value]) => predicate(key, value))),
+
+  // Check if an object is empty
+  isEmpty: (obj) => Object.keys(obj).length === 0,
+
+  // Get nested property safely
+  getNested: (obj, path) => path.split('.').reduce((acc, key) => acc?.[key], obj)
+};
+
+// Usage
+const obj = { name: "John", age: 30, details: { address: "Earth" } };
+
+console.log(ObjectKit.merge({ a: 1 }, { b: 2 })); // { a: 1, b: 2 }
+console.log(ObjectKit.getNested(obj, "details.address")); // "Earth"
+console.log(ObjectKit.isEmpty({})); // true
