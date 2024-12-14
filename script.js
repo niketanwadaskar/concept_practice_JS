@@ -1,4 +1,4 @@
-// // Primitive data types
+//? Primitive data types
 // let name = "John"; // String
 // let age = 30; // Number
 // let isStudent = true; // Boolean
@@ -10,16 +10,16 @@
 
 // const { resolve } = require("path");
 
-// // Non-primitive data type (object)
+//? Non-primitive data type (object)
 // const person = {
 //   firstName: "John",
 //   lastName: "Doe"
 // };
 
-// // Array (also an object)
+//?Array (also an object)
 // const cars = ["Saab", "Volvo", "BMW"];
 
-// // Date object
+//?Date object
 // const date = new Date("2022-03-25");
 
 // console.log("name =", typeof (name), "date=", typeof (date), "age=", typeof (age), "isStudent=", typeof (isStudent), "city=", typeof (city), "noValue=", typeof (noValue), "bigNumber=", typeof (bigNumber), "uniqueSymbol=", typeof (uniqueSymbol), "notANumber=", typeof (notANumber), "personObject=", typeof (person), "carsArray=", typeof (cars));
@@ -27,14 +27,89 @@
 // let x; // undefined
 // // const y; // error
 // const y = null; // null
+//? deep copy shallow copy
 
-// let a = {
+// const a = {
 //   name: "John",
-//   age: 30
+//   details: {
+//     age: 30,
+//     gender: "male",
+//     address: {
+//       city: "New York",
+//       state: "NY",
+//     },
+//     contact: {
+//       email: "xW2yR@example.com",
+//       phone: "123-456-7890",
+//     },
+//     friends: ["Alice", "Bob", "Charlie"],
+//   },
 // };
-// let b = a;
-// b.age = 31;
-// // console.log(a, b)
+
+//# Shallow Copy
+
+// const b =  {...a};
+// b.name = "Jane"; // here you will notice in object a name is not changed
+// b.details.friends.push("Doe"); // here you will notice in object a friends in both a and b one friend is added which is wrong;
+// console.log(a, b);
+
+//# Deep Copy
+
+// const c = JSON.parse(JSON.stringify(a));
+// c.name = "Jane";
+// c.details.friends.push("Doe");
+// console.log(a, c);// now here you will see that everything is intact in both object a.details.friends and c.details.friends
+
+// # Polyfill for the deep copy
+// there is most basic approch to this is juse JSON
+// there  is so nuch polifill for this. but yes there is one apporach called structured clone apporch  for more complex deep copy.
+
+// function structuredClone(obj) {
+//   return new Promise((resolve, reject) => {
+//     const { port1, port2 } = new MessageChannel();
+//     port1.onmessage = (event) => resolve(event.data);
+//     port2.onmessage = (event) => reject(event.data);
+//     port2.postMessage(obj);
+//   });
+// }
+
+// // structuredClone(a)
+// //   .then((clone) => {
+// //     clone.details.friends.push("Doe")
+// //     console.log(a,clone)
+// //   })
+// //   .catch((error) => console.log(error));
+
+// //# now why would we need  structuredClone clone like method
+// const problematicObject = {
+//   date: new Date(),
+//   map: new Map([
+//     [1, "one"],
+//     [2, "two"],
+//   ]),
+//   set: new Set([1, 2, 3]),
+//   regex: /abc/i,
+//   circularReference: null,
+// };
+
+// // Adding a circular reference
+// problematicObject.circularReference = problematicObject;
+
+// // Attempting to use JSON.stringify
+// try {
+//   const jsonString = JSON.stringify(problematicObject);
+//   console.log(jsonString); // Will throw an error (circular structure)
+// } catch (err) {
+//   console.error("JSON.stringify failed:", err.message);
+// }
+
+// //  here it will work. but always better to use lodash.
+// structuredClone(problematicObject)
+//   .then((clone) => {
+//     // clone.details.friends.push("Doe")
+//     console.log(problematicObject, clone);
+//   })
+//   .catch((error) => console.log(error));
 
 // (function () {
 //   console.log("i am IIFE",this)
