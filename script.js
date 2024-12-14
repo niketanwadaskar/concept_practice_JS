@@ -1222,7 +1222,6 @@
 
 // console.log(shortestToChar("loveleetcode", "e"));
 
-
 //?  tricky  JS question.
 // let x = 10 ;
 // let y = (x++,x+1,x*2);
@@ -1230,7 +1229,6 @@
 // console.log(y)
 
 // foo factorial three  function  -- > 3
-
 
 //? Function Declaration vs. Expression
 
@@ -1240,7 +1238,6 @@
 // const functionName = function(parameters) {
 //   // Function body
 // };
-
 
 // sayHello(); // Error: Cannot access 'sayHello' before initialization
 
@@ -1270,29 +1267,58 @@
 
 // ? What is an Object Kit?
 // Object Kit is not a formal or widely recognized technical term
-// so object kit can be refer to some utility function which are design to make working with object easier  
+// so object kit can be refer to some utility function which are design to make working with object easier
 
-const ObjectKit = {
-  // Merge multiple objects
-  merge: (...objects) => Object.assign({}, ...objects),
+// const ObjectKit = {
+//   // Merge multiple objects
+//   merge: (...objects) => Object.assign({}, ...objects),
 
-  // Deep clone an object
-  deepClone: (obj) => JSON.parse(JSON.stringify(obj)),
+//   // Deep clone an object
+//   deepClone: (obj) => JSON.parse(JSON.stringify(obj)),
 
-  // Filter object keys based on a condition
-  filterKeys: (obj, predicate) => 
-    Object.fromEntries(Object.entries(obj).filter(([key, value]) => predicate(key, value))),
+//   // Filter object keys based on a condition
+//   filterKeys: (obj, predicate) =>
+//     Object.fromEntries(Object.entries(obj).filter(([key, value]) => predicate(key, value))),
 
-  // Check if an object is empty
-  isEmpty: (obj) => Object.keys(obj).length === 0,
+//   // Check if an object is empty
+//   isEmpty: (obj) => Object.keys(obj).length === 0,
 
-  // Get nested property safely
-  getNested: (obj, path) => path.split('.').reduce((acc, key) => acc?.[key], obj)
+//   // Get nested property safely
+//   getNested: (obj, path) => path.split('.').reduce((acc, key) => acc?.[key], obj)
+// };
+
+// // Usage
+// const obj = { name: "John", age: 30, details: { address: "Earth" } };
+
+// console.log(ObjectKit.merge({ a: 1 }, { b: 2 })); // { a: 1, b: 2 }
+// console.log(ObjectKit.getNested(obj, "details.address")); // "Earth"
+// console.log(ObjectKit.isEmpty({})); // true
+
+// ? Different Rendering Strategies
+//# CSR --> stands for Client Side Rendering. Here the entire website is rendered in the browser.
+//# SSR --> stands for Server Side Rendering. Here the webpages are rendered on the server and then sent to the client. Next.js with SSR enabled (getServerSideProps).
+//# SSG --> stands for Static Site Generation. Here the webpages are rendered on the build time. Blogs or documentation websites built with Next.js using getStaticProps.
+//# ISR --> stands for Incremental Static Regeneration. Here the webpages are regenerated on the fly based after the defined time. Next.js using ISR (revalidate option in getStaticProps)
+
+const obj = {
+  name: "niketan",
+  surname: "wadaskar",
 };
 
-// Usage
-const obj = { name: "John", age: 30, details: { address: "Earth" } };
+function sayMyName(age) {
+  console.log(this.name, " ", this.surname, age);
+}
 
-console.log(ObjectKit.merge({ a: 1 }, { b: 2 })); // { a: 1, b: 2 }
-console.log(ObjectKit.getNested(obj, "details.address")); // "Earth"
-console.log(ObjectKit.isEmpty({})); // true
+sayMyName.call(obj, 12);
+sayMyName.apply(obj, [12]);
+
+
+
+Function.prototype.myBind = function (ctx){
+  const scope = this ;
+  return function (vals){
+    scope.apply(ctx,[vals])
+  }
+}
+const binded = sayMyName.myBind(obj);
+binded(122)
