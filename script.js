@@ -1299,26 +1299,3 @@
 //# SSR --> stands for Server Side Rendering. Here the webpages are rendered on the server and then sent to the client. Next.js with SSR enabled (getServerSideProps).
 //# SSG --> stands for Static Site Generation. Here the webpages are rendered on the build time. Blogs or documentation websites built with Next.js using getStaticProps.
 //# ISR --> stands for Incremental Static Regeneration. Here the webpages are regenerated on the fly based after the defined time. Next.js using ISR (revalidate option in getStaticProps)
-
-const obj = {
-  name: "niketan",
-  surname: "wadaskar",
-};
-
-function sayMyName(age) {
-  console.log(this.name, " ", this.surname, age);
-}
-
-sayMyName.call(obj, 12);
-sayMyName.apply(obj, [12]);
-
-
-
-Function.prototype.myBind = function (ctx){
-  const scope = this ;
-  return function (vals){
-    scope.apply(ctx,[vals])
-  }
-}
-const binded = sayMyName.myBind(obj);
-binded(122)
