@@ -1,17 +1,17 @@
-function multiply(number) {
-  // The inner function will be returned until the final call with no arguments
-  var multiplyRecursive = function (num2) {
-    if (num2 === undefined) {
-      return function () {
-        return number;
-      }; // Final result is returned when the chain is ended with `()`
-    } else {
-      return function (nextNum) {
-        return multiply(number * nextNum);
-      };
-    }
-  };
-  return multiplyRecursive;
+let say = [
+  2, 4, 7, 1, 4, 6, 8, 1, 4, 9, 2, 5, 5, 8, 1, 2, 3, 4, 4, 5, 6, 6, 7, 7, 8, 8,
+  9,
+];
+
+const ab = say.filter((val, index) => {
+  return say.indexOf(val) === index;
+});
+console.log(ab);
+
+
+function removeDuplicate(say){
+ const set = new Set(say);
+ return [...set];
 }
-// Usage:
-console.log(multiply(1)(2)(3)(4)(5)(6)()); // Output: 720
+
+console.log(removeDuplicate(ab))

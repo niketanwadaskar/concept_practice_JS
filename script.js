@@ -321,15 +321,15 @@
 // let sortedArray = removeDuplicate.sort().reverse()
 // console.log(sortedArray)
 
-// // Create a custom event
+//? // Create a custom event
 // let customEvent = new CustomEvent('myCustomEvent', { detail: { message: 'Hello from custom event!' } });
 
-// // Add an event listener for the custom event
+//? // Add an event listener for the custom event
 // document.addEventListener('myCustomEvent', function(event) {
 //   console.log('Custom event triggered:', event.detail.message);
 // });
 
-// // Invoke the custom event
+//? // Invoke the custom event
 // document.dispatchEvent(customEvent);
 
 // function flattenArray(arr) {
@@ -351,6 +351,10 @@
 // }
 
 // ? Promises  (race and all)
+//#  Returns the result of the first settled (resolved/rejected) promise in the array.
+//#  Resolves when all promises resolve, or rejects immediately if any promise rejects.
+//#  Waits for all promises to settle (resolve/reject) and returns their statuses.
+//#  Resolves with the first fulfilled promise or rejects if all promises fail.
 // const promise1 = new Promise((resolve, reject) => {
 //   setTimeout(() => resolve('Promise 1 resolved'), 1000);
 // });
