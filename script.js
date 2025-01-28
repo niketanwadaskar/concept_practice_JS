@@ -1302,3 +1302,18 @@
 
 // ? Event propagation
 // # event propagations is basically divided in two parts event bubbling and event capturing as the name suggest the event bubbling is basically when event is started at the child and goes upto the root and vice versa is capturing from to top do button we can enable this behavior by passing one more boolean key in the get element by ID method. by default bubbling is on when you pass the boolean key as tru then the capturing will be considered. now there is one more method or thing in all this that this when we  pass the callback function in get element by id that event hold lots of method related to that element. one of the them is stopPropagation which helps us to stop this behavior of the browser. and last is that if we use this properties for our benefit lets say we have list which have 10 button and we don't want to use lots of get element by id then we can just attach one to parent and use it for each button using event bubbling or capturing. this kind of uses is known as event delegation
+
+//? what is the difference between the splice and slice?
+
+const arr = Array.from({ length: 10 }, () => parseInt(Math.random() * 10));
+
+function fun1(name) {
+  return (age) => {
+    console.log("name", name, " ", "age", age);
+  };
+}
+
+const res = fun1("same")
+const res2 = fun1("come")
+
+res(12),res("132")
