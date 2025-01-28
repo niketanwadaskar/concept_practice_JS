@@ -1,17 +1,31 @@
-function multiply(number) {
-  // The inner function will be returned until the final call with no arguments
-  var multiplyRecursive = function (num2) {
-    if (num2 === undefined) {
-      return function () {
-        return number;
-      }; // Final result is returned when the chain is ended with `()`
-    } else {
-      return function (nextNum) {
-        return multiply(number * nextNum);
-      };
+const points = [25, 40, 1, 5, 100, 10];
+function findSecondLargest(arr) {
+  let largest = -Infinity;
+  let secondLargest = -Infinity;
+
+  arr.map((num, index) => {
+    if(num > largest) {
+      secondLargest = largest;
+      largest = num;
+    } else if (num > secondLargest && num !== largest) {
+        secondLargest = num;
     }
-  };
-  return multiplyRecursive;
+});
+console.log(largest , secondLargest, "");
+  // ----------------
+  //   let max = -Infinity;
+  //   let secondMax = -Infinity;
+
+  //   for (let i = 0; i < arr.length; i++) {
+  //     if (arr[i] > max) {
+  //       secondMax = max;
+  //       max = arr[i];
+  //     } else if (arr[i] > secondMax && arr[i] !== max) {
+  //       secondMax = arr[i];
+  //     }
+  //   }
+
+  //   console.log(secondMax);
 }
-// Usage:
-console.log(multiply(1)(2)(3)(4)(5)(6)()); // Output: 720
+
+findSecondLargest(points);
