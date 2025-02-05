@@ -1,31 +1,14 @@
-const points = [25, 40, 1, 5, 100, 10];
-function findSecondLargest(arr) {
-  let largest = -Infinity;
-  let secondLargest = -Infinity;
+// function isPowerOfTwo(n) {
+//   if (n == 0 || n == 1) return false;
+//   if (n == 2) return true;
+//   for (let index = 0; index < Math.sqrt(n); index++) {
+//     if (n % 2 == 0) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 
-  arr.map((num, index) => {
-    if(num > largest) {
-      secondLargest = largest;
-      largest = num;
-    } else if (num > secondLargest && num !== largest) {
-        secondLargest = num;
-    }
-});
-console.log(largest , secondLargest, "");
-  // ----------------
-  //   let max = -Infinity;
-  //   let secondMax = -Infinity;
+// console.log(isPowerOfTwo(16));
 
-  //   for (let i = 0; i < arr.length; i++) {
-  //     if (arr[i] > max) {
-  //       secondMax = max;
-  //       max = arr[i];
-  //     } else if (arr[i] > secondMax && arr[i] !== max) {
-  //       secondMax = arr[i];
-  //     }
-  //   }
-
-  //   console.log(secondMax);
-}
-
-findSecondLargest(points);
+// // n! = n * (n - 1) * (n - 2) ...
