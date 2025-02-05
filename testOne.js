@@ -9,6 +9,7 @@
 //   return false;
 // }
 
-// console.log(isPowerOfTwo(16));
+  //   console.log(secondMax);
+}
 
-// // n! = n * (n - 1) * (n - 2) ...
+findSecondLargest(points);
