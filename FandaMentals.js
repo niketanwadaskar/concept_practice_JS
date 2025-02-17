@@ -47,34 +47,34 @@ const sortedArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 //   return arr;
 // }
 
-//? Linear Search
+// //? Linear Search
 
-function linearSearch(arr, k) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == k) {
-      return i;
-    }
-  }
-  return -1;
-}
+// function linearSearch(arr, k) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] == k) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
 
-//? Binary Search
+// //? Binary Search
 
-function binarySearch(arr, k) {
-  let n = arr.length;
-  let left = 0;
-  let right = n - 1;
-  while (left <= right) {
-    let mid =left + Math.round((right-left ) / 2);
-    if (arr[mid] == k) {
-      return mid;
-    } else if (arr[mid] < k) {
-      left = mid + 1;
-    } else {
-      right = mid - 1;
-    }
-  }
-  return -1;
-}
+// function binarySearch(arr, k) {
+//   let n = arr.length;
+//   let left = 0;
+//   let right = n - 1;
+//   while (left <= right) {
+//     let mid =left + Math.round((right-left ) / 2);
+//     if (arr[mid] == k) {
+//       return mid;
+//     } else if (arr[mid] < k) {
+//       left = mid + 1;
+//     } else {
+//       right = mid - 1;
+//     }
+//   }
+//   return -1;
+// }
 
-console.log(binarySearch(sortedArr, 83));
+// console.log(binarySearch(sortedArr, 83));
