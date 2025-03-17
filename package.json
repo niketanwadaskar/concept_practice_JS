@@ -1,0 +1,19 @@
+{
+  "name": "concept_practice_js",
+  "version": "1.0.0",
+  "description": "1. **Data Structures**: Arrays, Linked Lists, Trees (BST, AVL), Graphs, Stacks, Queues, Heaps, and Hashing.\r 2. **Algorithms**: Sorting (Merge, Quick, Heap), Searching, Dynamic Programming, Greedy Algorithms, Backtracking.\r 3. **Operating Systems**: Process Management, Threads, Scheduling, Memory Management, File Systems.\r 4. **Database Management**: Normalization, SQL Queries, Transactions, Indexing, ACID Properties.\r 5. **Computer Networks**: OSI Model, TCP/IP, Routing, HTTP/HTTPS, DNS.\r 6. **Compiler Design**: Lexical Analysis, Parsing, Syntax Trees.\r 7. **Theory of Computation**: Regular Expressions, Finite Automata, Turing Machines.\r 8. **Software Engineering**: SDLC, Agile Methodologies, Design Patterns.",
+  "main": "FandaMentals.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
