@@ -1,18 +1,11 @@
-function fun(input) {
+const str = "hello";
 
-    for (let i = 0; i < input.length; i++) {
-        let found = false;
-        for (let j = 0; j < input.length; j++) {
-            if (i !== j && input[i] == input[j]) {
-                found = true
-                break
-            }
-        }
-        if (found == false) {
-            return input[i]
-        }
-    }  
-    return "ayyen"
+function reverseString(str) {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed = reversed + str[i];
+  }
+  return reversed;
 }
-const input = "swiss"
-console.log(fun(input))
+
+console.log(reverseString(str));
