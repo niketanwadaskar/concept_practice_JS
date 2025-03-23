@@ -1,30 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Concept Practice JS</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Sticky Header Example</h1>
-    </header>
 
-    <div class="content">
-      <div class="sticky-section">
-        <p>This is the sticky section. It will stay at the top of the viewport when you scroll.</p>
-      </div>
-      <div class="long-content">
-        <p>Scroll down to see the sticky effect in action!</p>
-        <p>Keep scrolling...</p>
-        <p>More content...</p>
-        <p>Even more content...</p>
-        <p>You're getting closer to seeing the sticky effect...</p>
-        <p>Almost there...</p>
-        <p>Keep going...</p>
-        <p>Here we go! Sticky element should now be fixed at the top.</p>
-      </div>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet Connection Status</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .status {
+      padding: 20px;
+      font-size: 24px;
+      color: white;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .online {
+      background-color: #4CAF50;
+    }
+
+    .offline {
+      background-color: #f44336;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Check Your Internet Connection</h1>
+  <div id="connectionStatus" class="status">Checking connection...</div>
+
+  <script>
+    function updateConnectionStatus() {
+      const statusDiv = document.getElementById("connectionStatus");
+
+      if (navigator.onLine) {
+        statusDiv.textContent = "You are online!";
+        statusDiv.classList.remove("offline");
+        statusDiv.classList.add("online");
+      } else {
+        statusDiv.textContent = "You are offline!";
+        statusDiv.classList.remove("online");
+        statusDiv.classList.add("offline");
+      }
+    }
+
+    // Check the initial status
+    updateConnectionStatus();
+
+    // Add event listeners for online/offline events
+    window.addEventListener("online", updateConnectionStatus);
+    window.addEventListener("offline", updateConnectionStatus);
+  </script>
+</body>
+
 </html>
